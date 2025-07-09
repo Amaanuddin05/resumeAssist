@@ -1,0 +1,166 @@
+/* Enhanced hover effects */
+.hover\:shadow-3xl:hover {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Button hover animations */
+.transform {
+  transition: transform 0.3s ease;
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+/* Progress bar animations */
+.progress-bar {
+  animation: fillProgress 2s ease-in-out;
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--progress-width);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12px !important;
+  }
+  
+  .print\:hidden {
+    display: none !important;
+  }
+  
+  .print\:bg-white {
+    background: white !important;
+  }
+  
+  .print\:bg-gray-50 {
+    background: #f9fafb !important;
+  }
+  
+  .print\:bg-gray-600 {
+    background: #4b5563 !important;
+  }
+  
+  .print\:bg-gray-700 {
+    background: #374151 !important;
+  }
+  
+  .print\:bg-gray-800 {
+    background: #1f2937 !important;
+  }
+  
+  .print\:border {
+    border: 1px solid #d1d5db !important;
+  }
+  
+  .print\:border-gray-200 {
+    border-color: #e5e7eb !important;
+  }
+  
+  .print\:border-gray-300 {
+    border-color: #d1d5db !important;
+  }
+  
+  .print\:border-gray-400 {
+    border-color: #9ca3af !important;
+  }
+  
+  .print\:shadow-none {
+    box-shadow: none !important;
+  }
+  
+  .print\:py-8 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  .print\:mb-8 {
+    margin-bottom: 2rem !important;
+  }
+  
+  /* Ensure proper page breaks */
+  .print\:break-inside-avoid {
+    break-inside: avoid !important;
+  }
+  
+  /* Remove gradients for print */
+  .bg-gradient-to-br,
+  .bg-gradient-to-r {
+    background: #f9fafb !important;
+  }
+  
+  /* Ensure text is readable */
+  .text-white {
+    color: white !important;
+  }
+  
+  /* Page margins */
+  @page {
+    margin: 1in;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+}
+
+/* Loading animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
