@@ -1,0 +1,78 @@
+/* Enhanced hover effects */
+.hover\:shadow-3xl:hover {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Card hover animations */
+.transform {
+  transition: transform 0.3s ease;
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+/* Progress bar animations */
+.progress-bar {
+  animation: fillProgress 2s ease-in-out;
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--progress-width);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Button pulse effect */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-hover:hover {
+  animation: pulse 2s infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+}
+
+/* Loading animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
