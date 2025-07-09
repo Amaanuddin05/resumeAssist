@@ -77,23 +77,17 @@ router.post('/', upload.single('resume'), async (req, res) => {
     console.log('Resume file received:', file.filename);
     try {
       const parsedText = await extractTextFromPDF(file.path);
+      // fs.writeFileSync('extracted_resume.txt', parsedText);
       console.log('Resume text preview:', parsedText.slice(0, 300));
       if (!parsedText || parsedText.trim().split(/\s+/).length < 10) {
         return res.status(400).json({ error: 'Resume text too short or empty.' });
       }
+      // Optional: delete file after parsing
       fs.unlinkSync(file.path);
 
       // ML scoring
       const scoringResult = await runScoringScript(parsedText, jobDescription);
-      res.json({
-        atsScore: scoringResult.ats_score,
-        keywordMatch: scoringResult.keyword_match,
-        readability: scoringResult.readability,
-        skillMatchScore: scoringResult.skill_match_score,
-        matchedSkills: scoringResult.matched_skills,
-        resumeSkills: scoringResult.resume_skills,
-        jdSkills: scoringResult.jd_skills
-      });
+      res.json(scoringResult);
     } catch (err) {
       console.error('Error:', err);
       res.status(500).json({ error: err.message || 'Failed to process resume.' });

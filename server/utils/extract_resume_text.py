@@ -3,28 +3,18 @@ import fitz
 import re
 
 def clean(text):
-    # Remove non-ASCII junk
-    text = re.sub(r'[^\x20-\x7E\n]', '', text)
+    # Keep common symbols, accents, punctuation
+    text = re.sub(r'[^\x09\x0A\x0D\x20-\x7E•*-]', '', text)
 
-    # Add newlines before section headings
     headings = [
         "Technical Skills", "Projects", "Experience",
         "Education", "Achievements", "Certifications"
     ]
     for h in headings:
         text = re.sub(rf'(?i)(?<!\n)({h})', r'\n\n\1', text)
-
-    # Replace bullet symbols with dashes
-    text = text.replace("•", "- ")
-
-    # Add line breaks after periods for readability
     text = re.sub(r'\.\s+', '.\n', text)
-
-    # Collapse multiple spaces
     text = re.sub(r'\s{2,}', ' ', text)
-
     return text.strip()
-
 
 def extract_text_from_pdf(file_path):
     doc = fitz.open(file_path)
@@ -37,6 +27,6 @@ def extract_text_from_pdf(file_path):
 if __name__ == "__main__":
     pdf_path = sys.argv[1]
     cleaned = extract_text_from_pdf(pdf_path)
-    print(cleaned) 
+    print(cleaned)
     with open("extracted_resume.txt", "w", encoding="utf-8") as f:
-        f.write(cleaned) 
+        f.write(cleaned)
