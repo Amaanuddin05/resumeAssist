@@ -8,7 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from nltk import download
 from spacy.matcher import PhraseMatcher
 
-# download('stopwords')
+download('stopwords')
 nlp = spacy.load("en_core_web_sm")
 stop_words = set(stopwords.words("english"))
 
