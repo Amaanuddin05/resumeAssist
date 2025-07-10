@@ -2,3 +2,5 @@ server/venv/
 server/.env
 server/node_modules
 server/extracted_resume.txt
+server/uploads/
+
